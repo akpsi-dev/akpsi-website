@@ -1,0 +1,533 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script>Static.COOKIE_BANNER_CAPABLE = true;</script>
+
+<script>
+  	$(document).ready(function() {
+
+	    // Gets the first/most recent industry
+	    var str = $('.industry').first().attr('id');
+	    var cur_t_id = str.substring(str.length - 2, str.length);
+	    
+	    // Set the most recent table menu selection to be visibly true
+	    $('.navitems').first().children('div').css('background','#FFFF00');
+	    
+	    // Hide all the tables except the most recent one
+	    $('.industry').each(function() {
+	    	if ($(this).attr('id') != "industry_" + cur_t_id) {
+	        	$(this).hide();
+	        }
+    	});
+    
+    
+	  	$('.navitems').click(function() {	// Clicking the industry...
+			// Get the clicked table id
+			var t_id = $(this).attr("id");
+			console.log("t_id: " + t_id);
+
+			// If the user is clicking on a different industry
+			if (cur_t_id != t_id) {
+				// Update menu state/color
+				$(this).children('div').css('background', '#FFFF00');
+				$('#' + cur_t_id).children('div').css('background', 'white');
+
+				// Show new table & Hide the current one
+				$('#industry_' + t_id).show();
+
+				console.log("cur_t_id: " + cur_t_id);
+				$('#industry_' + cur_t_id).hide();
+
+				// Update current table index
+				cur_t_id = t_id;
+			}
+    	});
+  	});
+</script>
+
+<head>
+	<link rel="stylesheet" href="https://toert.github.io/Isolated-Bootstrap/versions/4.0.0-beta/iso_bootstrap4.0.0min.css">
+	
+	<style type="text/css">
+		.table h2 {
+			font-size: 16px;
+			color: darkblue;
+		}
+		.table td {
+		font-size: 14px;
+		}
+		.table th {
+		font-size: 14px;
+		}
+		.industry h2 {
+			text-align: center;
+		}
+		.industry h3 {
+			font-size: 16px;
+			text-align: center;
+		}
+
+		#navlist {
+			list-style:none;
+			text-align:center;
+			margin-bottom:15px;
+		}
+
+		#navbar {
+			margin-bottom:5px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		.navitems {
+			display:inline-block;
+			float:none;
+			padding:10px;
+			margin-right:40px;
+			cursor:pointer;
+			border: 1px solid black;
+			border-radius: 15px;
+
+		}
+
+		.navitems div{
+			border-radius: 10px/10px;
+			border: solid 0.1em black;
+			width: 0.4em;
+			height: 0.4em;
+			margin: auto;
+		}
+
+		.navtexts {
+			font-size: 1em;
+		}
+
+		.navtexts:hover {
+			color: rgb(0, 123, 182);
+			box-shadow: 100%;
+		}
+
+		.sector-title {
+			padding-top: 15px;
+			margin: 0;
+			font-size: 1.12em;
+		}
+
+		.table-head {
+			font-size: 1.2em;
+			text-align: left;
+		}
+  	</style>
+</head>
+
+<!--Navigation starts here-->
+<div class="bootstrap">
+	<nav id="navbar">
+		<ul id="navlist">
+			<li id="af" class="navitems">
+				<span class="navtexts">Accounting and Finance</span>
+			</li>
+			<li id="sp" class="navitems">
+				<span class="navtexts">Software and Product Management</span>
+			</li>
+			<li id="ms" class="navitems">
+			  	<span class="navtexts">Marketing and Sales</span>
+			</li>
+			<li id="co" class="navitems">
+			 	<span class="navtexts">Consulting and Operations</span>
+			</li>
+			<li id="ah" class="navitems">
+			  	<span class="navtexts">Administration and HR</span>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<body>
+	<div class="bootstrap">
+  		<div class="industry" id="industry_af">
+  			<h2>Accounting and Finance</h2>
+		    <table class="table" id="2019-af">
+		    	<td colspan="4"><h3>2019</h3></td>
+		    	<tr>
+					<th class="tg-0lax">﻿Name</th>
+					<th class="tg-0lax">Position</th>
+					<th class="tg-0lax">Company</th>
+					<th class="tg-0lax">Industry</th>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Claudia Vu</td>
+					<td class="tg-0lax">Advisory Intern</td>
+					<td class="tg-0lax">Deloitte</td>
+					<td class="tg-0lax">Accounting</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Ivan Tagarao</td>
+					<td class="tg-0lax">TV Audit Internship</td>
+					<td class="tg-0lax">Warner Brothers</td>
+					<td class="tg-0lax">Accounting</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Jacquelyn Yim</td>
+					<td class="tg-0lax">Audit Intern</td>
+					<td class="tg-0lax">RSM</td>
+					<td class="tg-0lax">Accounting</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Jessica Kou</td>
+					<td class="tg-0lax">Tax Associate</td>
+					<td class="tg-0lax">Bolar Hirsch &amp; Jennings, LLP</td>
+					<td class="tg-0lax">Accounting</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sammy Mei</td>
+					<td class="tg-0lax">Intern</td>
+					<td class="tg-0lax">Western Digital</td>
+					<td class="tg-0lax">Finance</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Tiffany Yu</td>
+					<td class="tg-0lax">Finance IT Intern</td>
+					<td class="tg-0lax">Hulu</td>
+					<td class="tg-0lax">Finance</td>
+				</tr>
+				<td colspan="4"><h3>2018</h3></td>
+				<tr>
+					<th class="tg-0lax">﻿Name</th>
+					<th class="tg-0lax">Position</th>
+					<th class="tg-0lax">Company</th>
+					<th class="tg-0lax">Industry</th>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Justin Ibay</td>
+					<td class="tg-0lax">Tax Intern</td>
+					<td class="tg-0lax">Pathway</td>
+					<td class="tg-0lax">Finance</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Scarlette Sun</td>
+					<td class="tg-0lax">Investment Operations &amp; Treasury Intern</td>
+					<td class="tg-0lax">PAAMCO</td>
+					<td class="tg-0lax">Finance</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Stephanie Lai</td>
+					<td class="tg-0lax">Undergraduate Finance Associate</td>
+					<td class="tg-0lax">Disney Parks &amp; Resort</td>
+					<td class="tg-0lax">Finance</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Tiffany Yu</td>
+					<td class="tg-0lax">Portfolio Management Intern</td>
+					<td class="tg-0lax">Sabra Health Care REIT Upcoming: Hulu</td>
+					<td class="tg-0lax">Finance</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Victor Nguyenbui</td>
+					<td class="tg-0lax">Assistant Financial Accountant</td>
+					<td class="tg-0lax">Rise Bar</td>
+					<td class="tg-0lax">Accounting</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Victor Nguyenbui</td>
+					<td class="tg-0lax">Accounts and Fundraising Events Manager</td>
+					<td class="tg-0lax">Southern California Hospice Foundation</td>
+					<td class="tg-0lax">Accounting</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Vivian Lee</td>
+					<td class="tg-0lax">Tax Intern</td>
+					<td class="tg-0lax">Pathway</td>
+					<td class="tg-0lax">Accounting</td>
+				</tr>
+			</table>
+		</div>
+		<div class="industry" id="industry_sp">
+			<h2>Software and Product Management</h2>
+			<table class="table" id="2019-sp">
+				<td colspan="4"><h3>2019</h3></td>
+				<tr>
+					<th class="tg-0lax">﻿Name</th>
+					<th class="tg-0lax">Position</th>
+					<th class="tg-0lax">Company</th>
+					<th class="tg-0lax">Industry</th>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Alex Dinh</td>
+					<td class="tg-0lax">Software Engineering Intern</td>
+					<td class="tg-0lax">Thales</td>
+					<td class="tg-0lax">Software</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Benson Wu</td>
+					<td class="tg-0lax">Software Intern</td>
+					<td class="tg-0lax">Siemens PLM Software</td>
+					<td class="tg-0lax">Software</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Cass Tao</td>
+					<td class="tg-0lax">Software Engineering Intern</td>
+					<td class="tg-0lax">Thales</td>
+					<td class="tg-0lax">Software</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Omkar Kawade</td>
+					<td class="tg-0lax">Software Engineering Intern</td>
+					<td class="tg-0lax">Tinder</td>
+					<td class="tg-0lax">Software</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Samantha Jun</td>
+					<td class="tg-0lax">Product Line Management Intern</td>
+					<td class="tg-0lax">Thales</td>
+					<td class="tg-0lax">Product Management</td>
+				</tr>
+				<td colspan="4"><h3>2018</h3></td>
+				<tr>
+					<th class="tg-0lax">﻿Name</th>
+					<th class="tg-0lax">Position</th>
+					<th class="tg-0lax">Company</th>
+					<th class="tg-0lax">Industry</th>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Alex Dinh</td>
+					<td class="tg-0lax">Mobile Developer</td>
+					<td class="tg-0lax">Wing</td>
+					<td class="tg-0lax">Software</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Felicia Hou</td>
+					<td class="tg-0lax">Software Engineering Associate</td>
+					<td class="tg-0lax">Belkin</td>
+					<td class="tg-0lax">Software</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Rafael Protacio</td>
+					<td class="tg-0lax">E-Commerce Product Launch Intern</td>
+					<td class="tg-0lax">Best Choice Products</td>
+					<td class="tg-0lax">Product Management</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Benson Wu</td>
+					<td class="tg-0lax">Software Developer</td>
+					<td class="tg-0lax">UC Irvine Student Center &amp; Event Services</td>
+					<td class="tg-0lax">Software</td>
+				</tr>
+			</table>
+		</div>
+		<div class="industry" id="industry_ms">
+			<h2>Marketing and Sales</h2>
+		 	<table class="table" id="2019-ms">
+		 		<td colspan="4"><h3>2019</h3></td>
+		 		<tr>
+				    <th class="tg-0lax">﻿Name</th>
+				    <th class="tg-0lax">Position</th>
+				    <th class="tg-0lax">Company</th>
+				    <th class="tg-0lax">Industry</th>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Alex Cardona</td>
+					<td class="tg-0lax">Copywriter</td>
+					<td class="tg-0lax">Strategy Companion</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Annette Nguyen</td>
+					<td class="tg-0lax">Associate Product Marketing Manager</td>
+					<td class="tg-0lax">Google</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Ariel (JR) Salvador</td>
+					<td class="tg-0lax">Business Leadership Program (BLP) for Global Sales</td>
+					<td class="tg-0lax">LinkedIn</td>
+					<td class="tg-0lax">Sales</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Hari Ajith</td>
+					<td class="tg-0lax">Marketing Coordinator and Graphic Design Assistant</td>
+					<td class="tg-0lax">The Joy Factory</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Jeffrey Vu</td>
+					<td class="tg-0lax">Brand Ambassador</td>
+					<td class="tg-0lax">Amazon</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sean Chen</td>
+					<td class="tg-0lax">Global Sales Communications Intern</td>
+					<td class="tg-0lax">VMware</td>
+					<td class="tg-0lax">Sales</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sophia Wang</td>
+					<td class="tg-0lax">Retail Marketing Intern</td>
+					<td class="tg-0lax">Kia</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sophie Abad</td>
+					<td class="tg-0lax">Marketing Intern</td>
+					<td class="tg-0lax">A-Tech</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<td colspan="4"><h3>2018</h3></td>
+				<tr>
+					<th class="tg-0lax">﻿Name</th>
+					<th class="tg-0lax">Position</th>
+					<th class="tg-0lax">Company</th>
+					<th class="tg-0lax">Industry</th>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Alex Cardona</td>
+					<td class="tg-0lax">Growth Marketing Intern</td>
+					<td class="tg-0lax">Ripplematch</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Hari Ajith</td>
+					<td class="tg-0lax">Marketing Coordinator and Graphic Design Assistant</td>
+					<td class="tg-0lax">The Joy Factory</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sean Chen</td>
+					<td class="tg-0lax">Consulting Services Marketing Intern</td>
+					<td class="tg-0lax">Cylance</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sean Chen</td>
+					<td class="tg-0lax">Student Social Media Coordinator</td>
+					<td class="tg-0lax">Beckman Laser Institute</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sophia Wang</td>
+					<td class="tg-0lax">Marketing Intern</td>
+					<td class="tg-0lax">Sum Products</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sophia Wang</td>
+					<td class="tg-0lax">Student Brand Ambassador</td>
+					<td class="tg-0lax">Kaplan</td>
+					<td class="tg-0lax">Marketing</td>
+				</tr>
+			</table>
+		</div>
+		<div class="industry" id="industry_co">
+			<h2>Consulting and Operations</h2>
+			<table class="table" id="2019-co">
+				<td colspan="4"><h3>2019</h3></td>
+				<tr>
+					<th class="tg-0lax">﻿Name</th>
+					<th class="tg-0lax">Position</th>
+					<th class="tg-0lax">Company</th>
+					<th class="tg-0lax">Industry</th>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Christina Le</td>
+					<td class="tg-0lax">Consultant</td>
+					<td class="tg-0lax">Protiviti</td>
+					<td class="tg-0lax">Consulting</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Josephine Ros</td>
+					<td class="tg-0lax">Global Supply Chain Subcontractor Specialist</td>
+					<td class="tg-0lax">Northrop Grumman</td>
+					<td class="tg-0lax">Operations</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Michelle Han</td>
+					<td class="tg-0lax">Organizational Change &amp; Training Analyst</td>
+					<td class="tg-0lax">Collaborative Solutions (Workday)</td>
+					<td class="tg-0lax">Consulting</td>
+				</tr>
+		 	</table>
+		</div>
+		<div class="industry" id="industry_ah">
+			<h2>Administration and Human Resources</h2>
+		    <table class="table" id="2019-ah">
+		    	<td colspan="4"><h3>2019</h3></td>
+				<tr>
+					<th class="tg-0lax">﻿Name</th>
+					<th class="tg-0lax">Position</th>
+					<th class="tg-0lax">Company</th>
+					<th class="tg-0lax">Industry</th>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Celyne Demonteverde</td>
+					<td class="tg-0lax">Intern</td>
+					<td class="tg-0lax">Kaiser Permananente</td>
+					<td class="tg-0lax">Administration</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Jacky Chen</td>
+					<td class="tg-0lax">Student Assistant</td>
+					<td class="tg-0lax">Merage</td>
+					<td class="tg-0lax">Administration</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sarah Lee</td>
+					<td class="tg-0lax">HR Intern (Recruiting - Employer Branding)</td>
+					<td class="tg-0lax">Wells Fargo</td>
+					<td class="tg-0lax">Human Resources</td>
+				</tr>
+				<td colspan="4"><h3>2018</h3></td>
+				<tr>
+					<th class="tg-0lax">﻿Name</th>
+					<th class="tg-0lax">Position</th>
+					<th class="tg-0lax">Company</th>
+					<th class="tg-0lax">Industry</th>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Ivan Tagarao</td>
+					<td class="tg-0lax">Student Assistant</td>
+					<td class="tg-0lax">Merage Dean's Suite</td>
+					<td class="tg-0lax">Administration</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Ivan Tagarao</td>
+					<td class="tg-0lax">Project Management Intern</td>
+					<td class="tg-0lax">CIWM</td>
+					<td class="tg-0lax">Administration</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Jacky Chen</td>
+					<td class="tg-0lax">Student Assistant</td>
+					<td class="tg-0lax">Merage</td>
+					<td class="tg-0lax">Administration</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Lilian Trang</td>
+					<td class="tg-0lax">Assistant</td>
+					<td class="tg-0lax">Edwards Lifesciences</td>
+					<td class="tg-0lax">Administration</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sarah Lee</td>
+					<td class="tg-0lax">HR Intern</td>
+					<td class="tg-0lax">Ware Malcomb</td>
+					<td class="tg-0lax">Human Resources</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Sophie Abad</td>
+					<td class="tg-0lax">Academic Engagement Intern</td>
+					<td class="tg-0lax">ASUCI Upcoming: A-Tech</td>
+					<td class="tg-0lax">Administration</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Truong Xe</td>
+					<td class="tg-0lax">Legal Assistant</td>
+					<td class="tg-0lax">Law Office of Christopher J. McCann</td>
+					<td class="tg-0lax">Administration</td>
+				</tr>
+				<tr>
+					<td class="tg-0lax">Vivian Lee</td>
+					<td class="tg-0lax">Student Assistant</td>
+					<td class="tg-0lax">Merage Dean's Suite</td>
+					<td class="tg-0lax">Administration</td>
+				</tr>
+		  	</table>
+		</div>
+  	</div>
+</body>
