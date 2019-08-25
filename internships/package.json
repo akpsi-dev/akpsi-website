@@ -1,0 +1,17 @@
+{
+  "name": "internships",
+  "version": "0.0.1",
+  "description": "A project that generates an HTML table with AKPsi internships",
+  "main": "script.js",
+  "author": "Benson Wu",
+  "license": "ISC",
+  "scripts": {
+    "start": "node new_script.js"
+  },
+  "dependencies": {
+    "airtable": "^0.7.1",
+    "dotenv": "^8.1.0",
+    "pretty": "^2.0.0",
+    "pug": "^2.0.4"
+  }
+}

@@ -1,0 +1,49 @@
+//- <div class="industry" id="industry_af">
+//-   			<h2>Accounting and Finance</h2>
+//- 		    <table class="table" id="2019-af">
+//- 		    	<td colspan="4"><h3>2019</h3></td>
+//- 		    	<tr>
+//- 					<th class="tg-0lax">﻿Name</th>
+//- 					<th class="tg-0lax">Position</th>
+//- 					<th class="tg-0lax">Company</th>
+//- 					<th class="tg-0lax">Industry</th>
+//- 				</tr>
+
+mixin year_table(industry_obj_name)
+	table(class='table')
+		each year_obj in industry_obj_name
+			td(colspan='4')
+				h3 #{year_obj.year}
+			tr
+				th Name
+				th Position
+				th Company
+				th Industry
+			each record_obj in year_obj.records
+				tr
+					td #{record_obj.Name}
+					td #{record_obj.Position}
+					td #{record_obj.Company}
+					td #{record_obj.Industry[0]}
+
+body
+	div(class='bootstrap')
+		div(class='industry' id='industry_af')
+			h2 Accounting and Finance
+			+year_table(industries.af)
+
+		div(class='industry' id='industry_ms')
+			h2 Marketing and Sales
+			+year_table(industries.ms)
+			
+		div(class='industry' id='industry_co')
+			h2 Consulting and Operations
+			+year_table(industries.co)
+
+		div(class='industry' id='industry_ha')
+			h2 Human Resources and Administration
+			+year_table(industries.ha)
+
+		div(class='industry' id='industry_sp')
+			h2 Software and Product Management
+			+year_table(industries.sp)
