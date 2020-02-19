@@ -21,10 +21,14 @@ mixin year_table(industry_obj_name)
 				th Industry
 			each record_obj in year_obj.records
 				tr
-					td #{record_obj.Name}
+					if record_obj.Status == "Active"
+						td
+							a(href=`${record_obj.Link}`) #{record_obj.Name}
+					else
+						td #{record_obj.Name}
 					td #{record_obj.Position}
 					td #{record_obj.Company}
-					td #{record_obj.Industry[0]}
+					td #{record_obj.Industry}
 
 body
 	div(class='bootstrap')
@@ -44,6 +48,6 @@ body
 			h2 Human Resources and Administration
 			+year_table(industries.ha)
 
-		div(class='industry' id='industry_sp')
-			h2 Software and Product Management
-			+year_table(industries.sp)
+		div(class='industry' id='industry_tp')
+			h2 Technology and Product Management
+			+year_table(industries.tp)

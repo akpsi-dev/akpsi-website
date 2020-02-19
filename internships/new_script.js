@@ -32,8 +32,8 @@ base('Internships').select({
             'grouping': ["Human Resources", "Administration"]
         },
         {
-            'name': 'sp',
-            'grouping': ["Software", "Product Management"]
+            'name': 'tp',
+            'grouping': ["Software", "Product Management", "Technology"]
         }
     ];
 
@@ -43,7 +43,6 @@ base('Internships').select({
     records.forEach(function(record) {
         table.push(record.fields);
     });
-
 
     // Write the HTML file
     const compiledFunction = pug.compileFile('template.pug');
@@ -86,7 +85,7 @@ class InternshipTable {
 	}
 	push(record) {
 		// Get the industry obj that the record belongs to
-    	var industry_obj = this.getIndustry(record['Industry'][0]);
+    	var industry_obj = this.getIndustry(record['Industry']);
     	var year_obj = this.getYear(industry_obj, record['Year']);
     	if (!year_obj) {
     		// Set year_obj if it is null
@@ -94,10 +93,11 @@ class InternshipTable {
     			"year": record['Year'],
     			"records": []
     		};
-    		industry_obj.push(year_obj);
+            industry_obj.push(year_obj);
+            industry_obj.sort((a,b) => b["year"]-a["year"]);
     	}
     	year_obj['records'].push(record);
-	}
+    }
     getIndustry(industry_name) {
         // Get the industry obj that the record belongs to
         for (var grouping_obj of this.key) {
