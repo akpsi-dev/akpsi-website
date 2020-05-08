@@ -14,6 +14,9 @@ This is a Node.js based project that generates an html table for the website.
 This is the main script that generates the HTML and Javascript for the Careers page of the AKPsi website.
 
 #### a. How to run the script
+First you will need to set up a .env file with the AIRTABLE_API_KEY environment variable. Find the key on the Airtable account.
+
+To run the script:
 `npm start`
 
 #### b. Output of the script
