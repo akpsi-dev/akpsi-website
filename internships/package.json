@@ -6,7 +6,7 @@
   "author": "Benson Wu",
   "license": "ISC",
   "scripts": {
-    "start": "node new_script.js"
+    "start": "node script.js"
   },
   "dependencies": {
     "airtable": "^0.7.1",
