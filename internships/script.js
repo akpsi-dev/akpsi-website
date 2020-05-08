@@ -36,7 +36,6 @@ class InternshipTable {
         this.key = industry_groupings;
     }
     push(record) {
-        console.log(record['Active']);
         if (record['Active'] == null) {
             return // Do nothing on empty records
         }
@@ -100,8 +99,8 @@ base('Internships').select({
 }, function done(err) {
     if (err) { console.error(err); return; }
 
+	writeJSON()
     writeHTML()
-    writeJSON()
 
 });
 
@@ -109,21 +108,21 @@ function writeHTML() {
     // Write the HTML file
     const compiledFunction = pug.compileFile('template.pug');
     html_str = compiledFunction(table);
-    fs.writeFile('output.html', pretty(html_str), (err) => {
+    fs.writeFile('out/output.html', pretty(html_str), (err) => {
         // Catch error
         if (err) throw err;
 
-        console.log('HTML file created!');
+        console.log('SUCCESS: HTML file created!!!: out/output.html');
     });
 }
 
 function writeJSON() {
     // Write the JSON file
     var json_str = JSON.stringify(table, null, 2);
-    fs.writeFile('output.json', json_str, (err) => {
+    fs.writeFile('out/output.json', json_str, (err) => {
         // Catch error
         if (err) throw err;
 
-        console.log('JSON file created!');
+        console.log('SUCCESS: JSON file created!!!: out/output.json');
     });
 }
